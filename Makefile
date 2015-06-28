@@ -12,6 +12,12 @@ main: main.o clean_bin
 main.o: main.cpp
 	$(CC) $(CFLAGS) -c $<
 
+test: test.o clean_bin
+	$(CC) $(CFLAGS) $< -o $(OUT_PATH)/$@ $(LDFLAGS)
+
+test.o: test.cpp
+	$(CC) $(CFLAGS) -c $<
+
 clean_bin:
 	mkdir -p bin
 	rm -rf bin/*
